@@ -160,7 +160,6 @@ select {
 .grid-container {
   text-align: center;
   display: grid;
-  border: 3px solid green;
   place-items: center;
   row-gap: 10%;
   padding: 0 4em 0 4em;
@@ -179,12 +178,10 @@ select {
   }
   .grid-container > *:first-child {
     grid-column: 2;
-    outline: 1px solid red;
   }
   
   .grid-container > *:last-child {
     grid-column: 3;
-    outline: 1px solid yellow;
   }
 
   .grid-container--home {
