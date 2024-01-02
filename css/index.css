@@ -14,7 +14,7 @@
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
   --fs-600: 1rem;
-  --fs-500: 1.75rem;
+  --fs-500: 1rem;
   --fs-400: 0.9375rem;
   --fs-300: 1rem;
   --fs-200: 0.875rem;
@@ -30,6 +30,7 @@
     --fs-800: 5rem;
     --fs-700: 2.5rem;
     --fs-600: 1.5rem;
+    --fs-500: 1.25rem;
     --fs-400: 1rem;
 }
 }
@@ -39,6 +40,7 @@
     --fs-800: 6.25rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
+    --fs-500: 1.75rem;
     --fs-400: 1.125rem;
 
   }
@@ -157,39 +159,6 @@ select {
   margin-inline: auto;
   max-width: 80rem;
 }
-
-.grid-container {
-  text-align: center;
-  display: grid;
-  place-items: center;
-  row-gap: 10%;
-  padding: 0 4em 0 4em;
-}
-
-.grid-container * {
-  max-width: 50ch;
-}
-
-@media (min-width: 45em ) {
-  .grid-container {
-    text-align: center;
-    column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
-    align-items: end;
-  }
-  .grid-container > *:first-child {
-    grid-column: 2;
-  }
-  
-  .grid-container > *:last-child {
-    grid-column: 3;
-  }
-
-  .grid-container--home {
-    padding-bottom: 6rem;
-  }
-}
-
 
 .sr-only {
   position: absolute;
@@ -437,8 +406,6 @@ select {
   }
 }
 
-
-
 .underline-indicators > * {
   cursor: pointer;
   padding: var(--underline-gap, 1rem) 0;
@@ -484,7 +451,6 @@ select {
 /* ___________________________________*/
 
 
-
 body {
   background-size: cover;
   background-position: bottom center;
@@ -506,5 +472,164 @@ body {
 @media (min-width: 45rem) {
   .home {
     background-image: url(/starter-code/assets/home/background-home-desktop.jpg);
+  }
+}
+
+/* ---------------------------------- */
+/*               Layout               */
+/* ___________________________________*/
+
+
+.grid-container {
+  text-align: center;
+  display: grid;
+  place-items: center;
+  padding-inline: 2rem;
+  padding-bottom: 3rem;
+}
+
+.grid-container p:not([class]) {
+  max-width: 50ch;
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+/*  Destination layout  */
+
+.grid-container--destination {
+  grid-template-areas: 
+    'title'
+    'image'
+    'tabs'
+    'content';
+}
+
+.grid-container--destination > img {
+  grid-area: image;
+  width: 60%;
+}
+
+.grid-container--destination > .tab-list {
+  grid-area: tabs;
+}
+
+.grid-container--destination > .destination-info {
+  grid-area: content;
+}
+
+.destination-meta {
+  flex-direction: column;
+  border-top: 1px solid hsl( var(--clr-white) / .1);
+  padding-top: 2.5em;
+  margin-top: 2.5em;
+}
+
+.destination-meta p {
+  font-size: 1.75rem;
+}
+
+/* Crew layout  */
+
+.grid-container--crew {
+  --flow-space: 2rem;
+  grid-template-areas: 
+      'title'
+      'image'
+      'tabs'
+      'content';
+}
+
+.grid-container--crew > img {
+  grid-area: image;
+  width: 60%;
+  border-bottom: 1px solid hsl( var(--clr-white) / .1);
+}
+
+.grid-container--crew > .dot-indicators {
+  grid-area: tabs;
+}
+
+.grid-container--crew > .crew-info {
+  grid-area: content;
+}
+
+
+@media (min-width: 40rem) {
+  .numbered-title {
+    justify-self: start;
+    margin-top: 2rem;
+  }
+
+  .destination-meta {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .destination-meta div {
+    justify-content: center;
+  }
+
+  .grid-container--crew {
+    padding-bottom: 0;
+    grid-template-areas: 
+      'title'
+      'content'
+      'tabs'
+      'image';
+  }
+
+}
+
+@media (min-width: 45em ) {
+  .grid-container {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+  }
+
+  .grid-container--home {
+    padding-bottom: max(6rem, 20vh);
+  }
+
+  .grid-container--home > *:first-child {
+    grid-column: 2;
+  }
+  
+  .grid-container--home > *:last-child {
+    grid-column: 3;
+  }
+
+  .grid-container--destination {
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: 
+      '. title title .'
+      '. image tabs .'
+      '. image content .';
+  }
+
+  .grid-container--destination > img,
+  .grid-container--crew > img {
+    max-width: 90%;
+  }
+
+  .destination-meta {
+    --gap: min(5vw, 6rem);
+    justify-content: start;
+  }
+
+  .grid-container--crew {
+    justify-items: start;
+    align-items: start;
+    grid-template-areas: 
+      '. title title .'
+      '. content image .'
+      '. tabs image .';
+  }
+
+  .grid-container--crew > img {
+    align-self: end;
   }
 }
