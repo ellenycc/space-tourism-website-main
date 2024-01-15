@@ -101,7 +101,6 @@ body {
 img,
 picture {
   max-width: 100%;
-  display: block;
 }
 
 /* make form elements easier to work with */
@@ -355,7 +354,7 @@ select {
     right: 1rem;
     top: 2rem;
     background: transparent;
-    background-image: url(/starter-code/assets/shared/icon-hamburger.svg);
+    background-image: url(/assets/shared/icon-hamburger.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 1.5rem;
@@ -364,7 +363,7 @@ select {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url(/starter-code/assets/shared/icon-close.svg);
+    background-image: url(/assets/shared/icon-close.svg);
   }
 
   .mobile-nav-toggle:focus-visible {
@@ -470,57 +469,57 @@ body {
 /* home */
 
 .home {
-  background-image: url(/starter-code/assets/home/background-home-mobile.jpg);
+  background-image: url(/assets/home/background-home-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
   .home {
     background-position: center center;
-    background-image: url(/starter-code/assets/home/background-home-tablet.jpg);
+    background-image: url(/assets/home/background-home-tablet.jpg);
   }
 }
 
 @media (min-width: 45rem) {
   .home {
-    background-image: url(/starter-code/assets/home/background-home-desktop.jpg);
+    background-image: url(/assets/home/background-home-desktop.jpg);
   }
 }
 
 /* destination */
 
 .destination {
-  background-image: url(/starter-code/assets/destination/background-destination-mobile.jpg);
+  background-image: url(/assets/destination/background-destination-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
   .destination {
     background-position: center center;
-    background-image: url(/starter-code/assets/destination/background-destination-tablet.jpg);
+    background-image: url(/assets/destination/background-destination-tablet.jpg);
   }
 }
 
 @media (min-width: 45rem) {
   .destination {
-    background-image: url(/starter-code/assets/destination/background-destination-desktop.jpg);
+    background-image: url(/assets/destination/background-destination-desktop.jpg);
   }
 }
 
 /* crew */
 
 .crew {
-  background-image: url(/starter-code/assets/crew/background-crew-mobile.jpg);
+  background-image: url(/assets/crew/background-crew-mobile.jpg);
 }
 
 @media (min-width: 35rem) {
   .crew {
     background-position: center center;
-    background-image: url(/starter-code/assets/crew/background-crew-tablet.jpg);
+    background-image: url(/assets/crew/background-crew-tablet.jpg);
   }
 }
 
 @media (min-width: 45rem) {
   .crew {
-    background-image: url(/starter-code/assets/crew/background-crew-desktop.jpg);
+    background-image: url(/assets/crew/background-crew-desktop.jpg);
   }
 }
 
@@ -557,7 +556,8 @@ body {
 
 .grid-container--destination > picture {
   grid-area: image;
-  width: 60%;
+  width: 70%;
+  align-self: start;
 }
 
 .grid-container--destination > .tab-list {
@@ -635,14 +635,13 @@ body {
       'tabs'
       'image';
   }
-
 }
 
 @media (min-width: 45em ) {
   .grid-container {
     text-align: left;
     column-gap: var(--container-gap, 2rem);
-    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+    grid-template-columns: minmax(1rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(1rem, 1fr);
   }
 
   .grid-container--home {
@@ -666,9 +665,8 @@ body {
       '. image content .';
   }
 
-  .grid-container--destination > picture,
-  .grid-container--crew > img {
-    max-width: 90%;
+  .grid-container--destination > picture {
+    max-width: 100%;
   }
 
   .destination-meta {
@@ -677,15 +675,17 @@ body {
   }
 
   .grid-container--crew {
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 35rem) minmax(0, 30rem) minmax(1rem, 1fr);
     justify-items: start;
-    align-items: start;
     grid-template-areas: 
       '. title title .'
       '. content image .'
       '. tabs image .';
   }
 
-  .grid-container--crew > img {
+  .grid-container--crew > picture {
+    grid-column: span 2;
     align-self: end;
+    max-width: 100%;
   }
 }
