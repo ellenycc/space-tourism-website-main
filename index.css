@@ -348,7 +348,7 @@ select {
     right: 1rem;
     top: 2rem;
     background: transparent;
-    background-image: url(/assets/shared/icon-hamburger.svg);
+    background-image: url(./assets/shared/icon-hamburger.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 1.5rem;
@@ -357,7 +357,7 @@ select {
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url(/assets/shared/icon-close.svg);
+    background-image: url(./assets/shared/icon-close.svg);
   }
 
   .mobile-nav-toggle:focus-visible {
@@ -707,15 +707,15 @@ body {
   }
 
   .grid-container--technology > #space-capsule-image {
-    content: url(assets/technology/image-space-capsule-portrait.jpg);
+    content: url(./assets/technology/image-space-capsule-portrait.jpg);
   }
 
   .grid-container--technology > #launch-vehicle-image {
-    content: url(assets/technology/image-launch-vehicle-portrait.jpg);
+    content: url(./assets/technology/image-launch-vehicle-portrait.jpg);
   }
 
   .grid-container--technology > #spaceport-image {
-    content: url(assets/technology/image-spaceport-portrait.jpg);
+    content: url(./assets/technology/image-spaceport-portrait.jpg);
   }
 }
 
